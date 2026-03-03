@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Page non trouvé{% endblock title %}
+
+{% block content %}
+
+
+<div class="container px-5 py-5 text-center">
+    <h1>Erreur serveur (500)</h1>
+    <p>Une erreur est survenue. Veuillez réessayer plus tard.</p>
+    <a href="{% url 'index' %}">Retour à l'accueil</a>
+</div>
+
+{% endblock %}

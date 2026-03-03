@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Page non trouvé{% endblock title %}
+
+{% block content %}
+
+
+<div class="container px-5 py-5 text-center">
+    <h1>Oops ! Page introuvable (404)</h1>
+    <p>La page que vous cherchez n'existe pas.</p>
+    <a href="{% url 'index' %}">Retour à l'accueil</a>
+</div>
+
+{% endblock %}
