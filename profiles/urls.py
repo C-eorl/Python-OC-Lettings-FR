@@ -4,6 +4,10 @@ from profiles import views
 
 app_name = 'profiles'
 
+#######################################################################
+#                      URL - PROFILES                                 #
+#######################################################################
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('<str:username>/', views.profile, name='profile'),
