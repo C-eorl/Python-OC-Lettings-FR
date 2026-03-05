@@ -1,10 +1,10 @@
 
 ![logo Epic Events](https://user.oc-static.com/upload/2023/07/20/1689880374259_Orange%20County%20Lettings%20Ad.png)
-## Résumé
+##  1. Résumé
 
 Site web d'Orange County Lettings
 
-## Développement local
+## 2. Développement local
 
 ### Prérequis
 
@@ -77,3 +77,13 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+## 3. Configuration
+
+Créer un fichier .env et copier ceci :
+```dotenv
+SECRET_KEY='your_key_secret'
+ALLOWED_HOSTS=localhost
+DATABASE_NAME='oc-lettings-site.sqlite3'
+SENTRY_DSN=your_dsn_sentry
+```
