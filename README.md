@@ -83,7 +83,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 Créer un fichier .env et copier ceci :
 ```dotenv
 SECRET_KEY='your_key_secret'
-ALLOWED_HOSTS=localhost
+ALLOWED_HOSTS=localhost,127.0.0.1,your_domain_site
 DATABASE_NAME='oc-lettings-site.sqlite3'
 SENTRY_DSN=your_dsn_sentry
 ```
