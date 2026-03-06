@@ -13,15 +13,17 @@ env = environ.Env(
 )
 environ.Env.read_env(env_file=BASE_DIR / '.env')
 
-sentry_sdk.init(
-    dsn=env('SENTRY_DSN'),
-    integrations=[
-        DjangoIntegration(),
-    ],
-    # Add data like request headers and IP for users,
-    # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
-    send_default_pii=True,
-)
+SENTRY_DSN = env('SENTRY_DSN', default=None)
+if SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=env('SENTRY_DSN'),
+        integrations=[
+            DjangoIntegration(),
+        ],
+        # Add data like request headers and IP for users,
+        # see https://docs.sentry.io/platforms/python/data-management/data-collected/
+        send_default_pii=True,
+    )
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
