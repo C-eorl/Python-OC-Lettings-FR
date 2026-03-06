@@ -47,9 +47,9 @@ jobs:
       - name: Build image
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/OC_Lettings:latest \
-                       -t ${{ secrets.DOCKERHUB_USERNAME }}/monapp:${{ github.sha }} .
+                       -t ${{ secrets.DOCKERHUB_USERNAME }}/OC_Lettings:${{ github.sha }} .
 
       - name: Push image
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/OC_Lettings:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/monapp:${{ github.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/OC_Lettings:${{ github.sha }}
