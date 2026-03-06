@@ -32,6 +32,7 @@ def test_letting_detail_view(client):
     assert response.context["title"] == "My Letting"
     assert response.context["address"] == address
 
+
 @pytest.mark.django_db
 def test_letting_detail_view_invalid(client):
 
