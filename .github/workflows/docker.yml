@@ -33,6 +33,7 @@ jobs:
   docker:
     needs: test
     runs-on: ubuntu-latest
+    environment: OC-Lettings
 
     steps:
       - name: Checkout repo
