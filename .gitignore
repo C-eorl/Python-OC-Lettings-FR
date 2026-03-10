@@ -4,3 +4,8 @@
 .venv
 .idea
 .coverage
+
+# doc
+doc/_build/
+doc/_static/
+doc/_templates/
