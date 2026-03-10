@@ -55,3 +55,11 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:${{ github.sha }}
+
+  renderhook:
+    needs: docker
+    runs-on: ubuntu-latest
+    environment: OC-Lettings
+    steps:
+      - name: Deploy on Render
+        run: curl --fail -X POST ${{ secrets.RENDER_HOOK }}

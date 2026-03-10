@@ -1,3 +1,5 @@
+import sentry_sdk
+from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 
 from profiles.models import Profile
@@ -28,6 +30,11 @@ def profile(request, username):
     :param username: profile's username
     :return: render html template
     """
-    profile = get_object_or_404(Profile, user__username=username)
+    try:
+        profile = get_object_or_404(Profile, user__username=username)
+    except Profile.DoesNotExist:
+        sentry_sdk.logger.info("Profile not found")
+        raise Http404
+
     context = {'profile': profile}
     return render(request, 'profiles/profile.html', context)
