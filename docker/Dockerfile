@@ -14,6 +14,5 @@ COPY .. .
 
 RUN python manage.py collectstatic --noinput
 
-ENV PORT 8000
 
-CMD ["sh", "-c", "gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:$PORT "]
+CMD ["sh", "-c", "gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:8000 "]
