@@ -31,7 +31,7 @@ def profile(request, username):
     :return: render html template
     """
     try:
-        profile = get_object_or_404(Profile, user__username=username)
+        profile = Profile.objects.get(user__username=username)
     except Profile.DoesNotExist:
         sentry_sdk.logger.info("Profile not found")
         raise Http404

@@ -38,7 +38,7 @@ def letting(request, letting_id):
     :return: render html template
     """
     try:
-        letting = get_object_or_404(Letting, id=letting_id)
+        letting = Letting.objects.get(id=letting_id)
     except Letting.DoesNotExist:
         sentry_sdk.logger.info("Letting not found")
         raise Http404
