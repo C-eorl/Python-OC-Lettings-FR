@@ -1,17 +1,58 @@
-.. OC_Lettings_site documentation master file, created by
-   sphinx-quickstart on Tue Mar 10 09:47:25 2026.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. OC Lettings documentation master file
 
-OC_Lettings_site documentation
-==============================
+================================
+Documentation OC Lettings 2.0
+================================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+Bienvenue dans la documentation technique du projet **OC Lettings**,
+une plateforme de gestion de locations immobilières développée par
+Orange County Lettings.
 
+Cette documentation couvre l'architecture, l'installation, le déploiement
+et l'utilisation de l'application web Django.
+
+.. image:: https://img.shields.io/badge/Python-3.10+-blue.svg
+   :target: https://www.python.org/downloads/
+   :alt: Python Version
+
+.. image:: https://img.shields.io/badge/Django-3.0+-green.svg
+   :target: https://www.djangoproject.com/
+   :alt: Django Version
+
+Table des matières
+==================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Introduction
 
+   description
+   technologies
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Guide d'installation
+
+   installation
+   quickstart
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Architecture technique
+
+   database
+   api
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Guide d'utilisation
+
+   usage
+   deployment
+
+Indices et tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
