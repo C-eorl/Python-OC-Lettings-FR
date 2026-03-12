@@ -1,4 +1,4 @@
-import sentry_sdk
+import sentry_sdk.logger
 from django.http import Http404
 from django.shortcuts import render
 
@@ -40,7 +40,7 @@ def letting(request, letting_id):
     try:
         letting = Letting.objects.get(id=letting_id)
     except Letting.DoesNotExist:
-        sentry_sdk.logger.info("Letting not found")
+        sentry_sdk.logger.info(f"Letting: {letting_id} does not exist")
         raise Http404
 
     context = {
