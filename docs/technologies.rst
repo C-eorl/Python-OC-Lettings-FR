@@ -24,20 +24,6 @@ Base de données
    Base de données relationnelle légère utilisée en développement et production
    (pour ce projet de démonstration).
 
-Environnement de développement
-===============================
-
-Gestionnaire de paquets
------------------------
-
-**pip**
-   Gestionnaire de paquets Python standard.
-
-Environnement virtuel
----------------------
-
-**venv**
-   Module Python pour créer des environnements virtuels isolés.
 
 Outils de qualité de code
 ==========================
@@ -128,14 +114,6 @@ Frontend
 **Bootstrap**
    Framework CSS pour un design responsive.
 
-Contrôle de version
-===================
-
-**Git**
-   Système de contrôle de version distribué.
-
-**GitHub**
-   Plateforme d'hébergement de code source avec fonctionnalités CI/CD.
 
 Dépendances Python principales
 ===============================

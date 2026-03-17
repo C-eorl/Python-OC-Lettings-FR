@@ -14,21 +14,6 @@ Logiciels requis
 - **Python 3.10 ou supérieur**
 - **Git**
 
-Vérification des prérequis
----------------------------
-
-.. code-block:: bash
-
-   # Vérifier la version de Python
-   python --version
-   # Résultat attendu : Python 3.10.x ou supérieur
-
-   # Vérifier Git
-   git --version
-   # Résultat attendu : git version 2.30.x ou supérieur
-
-
-
 Récupération du code source
 ============================
 
@@ -37,11 +22,7 @@ Cloner le dépôt Git
 
 .. code-block:: bash
 
-   # HTTPS
    git clone https://github.com/C-eorl/Python-OC-Lettings-FR.git
-
-
-   # Accéder au dossier du projet
    cd Python-OC-Lettings-FR
 
 Configuration de l'environnement
@@ -52,12 +33,10 @@ Créer un environnement virtuel
 
 .. code-block:: bash
 
-   # Créer l'environnement virtuel
    python -m venv venv
 
 Activer l'environnement virtuel
 --------------------------------
-
 
 .. code-block:: bash
     # Linux / Mac

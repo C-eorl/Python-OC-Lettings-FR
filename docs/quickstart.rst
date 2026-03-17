@@ -46,11 +46,8 @@ Interface d'administration
    http://127.0.0.1:8000/admin/
 
 .. note::
-   Pour accéder à l'admin, créer d'abord un superutilisateur :
-
-   .. code-block:: bash
-
-      python manage.py createsuperuser
+   Pour accéder à l'admin, un superutilisateur est mis a disposition:
+    utilisateur: admin, mot de passe : Abc1234!
 
 Commandes essentielles
 =======================
@@ -99,8 +96,8 @@ Docker
    docker run -p 8000:8000 oc-lettings:latest
 
    # Récupérer depuis Docker Hub
-   docker pull votre-username/oc-lettings:latest
-   docker run -p 8000:8000 votre-username/oc-lettings:latest
+   docker pull ceorl/oc-lettings:latest
+   docker run -p 8000:8000 ceorl/oc-lettings:latest
 
 Structure du projet
 ===================
