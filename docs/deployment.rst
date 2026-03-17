@@ -23,22 +23,22 @@ Architecture du pipeline
    │     GitHub Actions (Workflow)           │
    ├─────────────────────────────────────────┤
    │                                         │
-   │  Job 1: Build & Test                   │
-   │  ├─ Linting (flake8)                   │
-   │  ├─ Tests (pytest)                     │
-   │  └─ Couverture > 80%                   │
+   │  Job 1: Build & Test                    │
+   │  ├─ Linting (flake8)                    │
+   │  ├─ Tests (pytest)                      │
+   │  └─ Couverture > 80%                    │
    │          │                              │
    │          ▼ (si succès)                  │
    │                                         │
-   │  Job 2: Containerize (branch main only)     │
-   │  ├─ Build image Docker                 │
-   │  ├─ Tag: hash du commit                │
-   │  └─ Push vers Docker Hub               │
+   │  Job 2: Containerize (branch main only) │
+   │  ├─ Build image Docker                  │
+   │  ├─ Tag: hash du commit                 │
+   │  └─ Push vers Docker Hub                │
    │          │                              │
    │          ▼ (si succès)                  │
    │                                         │
-   │  Job 3: Deploy (main only)           │
-   │  └─ Déploiement sur Render (via hook)            │
+   │  Job 3: Deploy (main only)              │
+   │  └─ Déploiement sur Render (via hook)   │
    │                                         │
    └─────────────────────────────────────────┘
 
@@ -183,15 +183,11 @@ Construction et test local
 
 .. code-block:: bash
 
-   # Construire l'image
-   docker build -t oc-lettings:local .
+   # Construire l'image (être à la racine du projet)
+   docker build -f docker/Dockerfile -t oc-lettings:local .
 
    # Lancer le conteneur
-   docker run -p 8000:8000 \
-     -e SECRET_KEY='your-secret-key' \
-     -e DEBUG=False \
-     -e ALLOWED_HOSTS='localhost,127.0.0.1' \
-     oc-lettings:local
+   docker run -p 8000:8000 oc-lettings:local
 
    # Accéder à l'application
    open http://localhost:8000
@@ -205,10 +201,7 @@ Récupération depuis Docker Hub
    docker pull ceorl/oc_lettings:latest
 
    # Lancer en une commande
-   docker run -p 8000:8000 \
-     -e SECRET_KEY='your-secret-key' \
-     -e SENTRY_DSN='your-sentry-dsn' \
-     ceorl/oc_lettings:latest
+   docker run -p 8000:8000 ceorl/oc_lettings:latest
 
 Déploiement sur Render
 =======================
@@ -324,11 +317,8 @@ Vérification du déploiement
 Après un déploiement, vérifier :
 
 **1. L'application est accessible**
-
-.. code-block:: bash
-
-   curl https://oc-lettings.onrender.com/ # votre addresse Render
-   # Doit retourner la page HTML
+    votre adresse Render:
+    https://oc-lettings.onrender.com/
 
 **2. Les fichiers statiques se chargent**
 
