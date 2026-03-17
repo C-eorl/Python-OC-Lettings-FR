@@ -1,6 +1,10 @@
 
 ![logo Epic Events](https://user.oc-static.com/upload/2023/07/20/1689880374259_Orange%20County%20Lettings%20Ad.png)
-[![Documentation Status](https://readthedocs.org/projects/monprojet/badge/?version=latest)](https://monprojet.readthedocs.io)
+[![Documentation Status](https://readthedocs.org/projects/oc-lettings-site-ceorl/badge/?version=latest)](https://oc-lettings-site-ceorl.readthedocs.io/fr/latest/)
+
+![Python](https://img.shields.io/badge/python-3.10-blue?logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/django-5.2-%23092E20?logo=django&logoColor=white)
+
 ##  1. Résumé
 
 **OC Lettings** est une application web développée en Django qui permet de gérer
