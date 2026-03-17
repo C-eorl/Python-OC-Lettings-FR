@@ -39,6 +39,7 @@ Activer l'environnement virtuel
 --------------------------------
 
 .. code-block:: bash
+
     # Linux / Mac
    source venv/bin/activate
     # Windows
