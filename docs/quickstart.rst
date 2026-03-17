@@ -10,7 +10,7 @@ Installation rapide
 .. code-block:: bash
 
    # 1. Cloner le projet
-   git clone https://github.com/votre-username/Python-OC-Lettings-FR.git
+   git clone https://github.com/C-eorl/Python-OC-Lettings-FR.git
    cd Python-OC-Lettings-FR
 
    # 2. Créer et activer l'environnement virtuel
@@ -89,15 +89,16 @@ Docker
 
 .. code-block:: bash
 
-   # Construire l'image Docker
-   docker build -t oc-lettings:latest .
+   # Construire l'image (être à la racine du projet)
+   docker build -f docker/Dockerfile -t oc-lettings:local .
 
    # Lancer le conteneur
-   docker run -p 8000:8000 oc-lettings:latest
+   docker run -p 8000:8000 oc-lettings:local
 
    # Récupérer depuis Docker Hub
-   docker pull ceorl/oc-lettings:latest
-   docker run -p 8000:8000 ceorl/oc-lettings:latest
+   docker pull ceorl/oc_lettings:latest
+      docker run -p 8000:8000 ceorl/oc_lettings:latest
+
 
 Structure du projet
 ===================

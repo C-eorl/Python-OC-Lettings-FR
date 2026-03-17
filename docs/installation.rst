@@ -69,7 +69,8 @@ Créer un superutilisateur (optionnel)
 --------------------------------------
 
 Pour accéder à l'interface d'administration :
-
+Soit vous utilisez le superuser déjà créé: admin - Abc1234!
+Soit vous en créez un :
 .. code-block:: bash
 
    python manage.py createsuperuser
