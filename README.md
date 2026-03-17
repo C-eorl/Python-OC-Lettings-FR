@@ -1,8 +1,11 @@
 
 ![logo Epic Events](https://user.oc-static.com/upload/2023/07/20/1689880374259_Orange%20County%20Lettings%20Ad.png)
+[![Documentation Status](https://readthedocs.org/projects/monprojet/badge/?version=latest)](https://monprojet.readthedocs.io)
 ##  1. Résumé
 
-Site web d'Orange County Lettings
+**OC Lettings** est une application web développée en Django qui permet de gérer
+des annonces de locations immobilières et des profils utilisateurs.
+
 
 ## 2. Développement local
 
