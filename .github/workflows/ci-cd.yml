@@ -24,7 +24,7 @@ jobs:
         run: flake8 .
 
       - name: Run pytest
-        run: pytest --cov-fail_under=80
+        run: pytest --cov-fail-under=80
 
 
   docker:
