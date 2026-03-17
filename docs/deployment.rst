@@ -65,69 +65,69 @@ Fichier de workflow GitHub Actions
 
    name: CI/CD Docker
 
-on: push
+    on: push
 
-jobs:
+    jobs:
 
-  test:
-    runs-on: ubuntu-latest
+      test:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+        steps:
+          - name: Checkout repo
+            uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
+          - name: Setup Python
+            uses: actions/setup-python@v5
+            with:
+              python-version: "3.10"
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+          - name: Install dependencies
+            run: |
+              pip install -r requirements.txt
 
-      - name: Run flake8
-        run: flake8 .
+          - name: Run flake8
+            run: flake8 .
 
-      - name: Run pytest
-        run: pytest
+          - name: Run pytest
+            run: pytest
 
 
-  docker:
-    needs: test
-    runs-on: ubuntu-latest
-    environment: OC-Lettings
-    if: github.ref == 'refs/heads/main'
+      docker:
+        needs: test
+        runs-on: ubuntu-latest
+        environment: OC-Lettings
+        if: github.ref == 'refs/heads/main'
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+        steps:
+          - name: Checkout repo
+            uses: actions/checkout@v4
 
-      - name: Login DockerHub
-        uses: docker/login-action@v4
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          - name: Login DockerHub
+            uses: docker/login-action@v4
+            with:
+              username: ${{ secrets.DOCKERHUB_USERNAME }}
+              password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build image
-        run: |
-          docker build -f docker/Dockerfile \
-                       -t ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:latest \
-                       -t ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:${{ github.sha }} .
+          - name: Build image
+            run: |
+              docker build -f docker/Dockerfile \
+                           -t ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:latest \
+                           -t ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:${{ github.sha }} .
 
-      - name: Push image
-        run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:${{ github.sha }}
+          - name: Push image
+            run: |
+              docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:latest
+              docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc_lettings:${{ github.sha }}
 
-  renderhook:
-    needs: docker
-    runs-on: ubuntu-latest
-    environment: OC-Lettings
-    if: github.ref == 'refs/heads/main'
+      renderhook:
+        needs: docker
+        runs-on: ubuntu-latest
+        environment: OC-Lettings
+        if: github.ref == 'refs/heads/main'
 
-    steps:
-      - name: Deploy on Render
-        run: curl --fail -X POST ${{ secrets.RENDER_HOOK }}
+        steps:
+          - name: Deploy on Render
+            run: curl --fail -X POST ${{ secrets.RENDER_HOOK }}
 
 Secrets GitHub à configurer
 ----------------------------
@@ -158,24 +158,24 @@ Dockerfile
 
 .. code-block:: dockerfile
 
-   FROM python:3.10-slim
-LABEL authors="ceorl"
-LABEL description="OC Lettings Site"
+    FROM python:3.10-slim
+    LABEL authors="ceorl"
+    LABEL description="OC Lettings Site"
 
-WORKDIR /app
+    WORKDIR /app
 
-RUN apt-get update && apt-get install -y build-essential libpq-dev && rm -rf /var/lib/apt/lists/*
+    RUN apt-get update && apt-get install -y build-essential libpq-dev && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --no-cache-dir gunicorn
+    COPY requirements.txt ./
+    RUN pip install --no-cache-dir -r requirements.txt
+    RUN pip install --no-cache-dir gunicorn
 
-COPY .. .
+    COPY .. .
 
-RUN python manage.py collectstatic --noinput
+    RUN python manage.py collectstatic --noinput
 
 
-CMD ["sh", "-c", "gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:8000 "]
+    CMD ["sh", "-c", "gunicorn oc_lettings_site.wsgi:application --bind 0.0.0.0:8000 "]
 
 
 Construction et test local
@@ -202,13 +202,13 @@ Récupération depuis Docker Hub
 .. code-block:: bash
 
    # Pull de l'image
-   docker pull votre-username/oc-lettings:latest
+   docker pull ceorl/oc_lettings:latest
 
    # Lancer en une commande
    docker run -p 8000:8000 \
      -e SECRET_KEY='your-secret-key' \
      -e SENTRY_DSN='your-sentry-dsn' \
-     votre-username/oc-lettings:latest
+     ceorl/oc_lettings:latest
 
 Déploiement sur Render
 =======================
