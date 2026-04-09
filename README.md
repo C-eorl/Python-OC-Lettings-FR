@@ -100,7 +100,7 @@ SENTRY_DSN=your_dsn_sentry
 ### a. Github Action
 * ```ci/cd.yml```
 
-Mise en place automatique, pour chaque push, l'éxecution de flake8 & pytest avec couverture de => 80%.
+Mise en place automatique, pour chaque push, l'éxecution de flake8 & pytest avec couverture de > 80%.
 
 **/!\ Les deux étapes suivant ne se déclenche que si un push est fait sur la branche main**
 
