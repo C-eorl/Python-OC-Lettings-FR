@@ -94,3 +94,27 @@ ALLOWED_HOSTS=localhost,127.0.0.1,your_domain_site
 DATABASE_NAME='oc-lettings-site.sqlite3'
 SENTRY_DSN=your_dsn_sentry
 ```
+---
+## 4. Pipeline CI/CD 
+
+### a. Github Action
+* ```ci/cd.yml```
+
+Mise en place automatique, pour chaque push, l'éxecution de flake8 & pytest avec couverture de => 80%.
+
+**/!\ Les deux étapes suivant ne se déclenche que si un push est fait sur la branche main**
+
+Suivi du build de l'image docker puis pull sur le repository dockerhub.
+
+Et enfin, déploiement de l'image docker sur Render grâce au hook.
+
+### b. Containerisation Docker
+* ```Dockerfile```
+
+Instruction pour build l'image docker avec dépendance necessaire à son fonctionnement + celui de l'application django.
+
+### c. Déploiement  
+Le déploiement s'effectue sur Render, qui va récupère image docker avec le tag :latest
+
+---
+_Projet réalisé dans le contexte de la formation Developpeur Python - OpenClassRoom_
