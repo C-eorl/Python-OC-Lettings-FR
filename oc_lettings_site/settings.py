@@ -8,7 +8,9 @@ from sentry_sdk.integrations.django import DjangoIntegration
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env('DEBUG', default=False)
+env = environ.Env(
+    DEBUG=(bool, True),
+)
 environ.Env.read_env(env_file=BASE_DIR / '.env')
 
 SENTRY_DSN = env('SENTRY_DSN', default=None)
@@ -32,7 +34,6 @@ SECRET_KEY = env('SECRET_KEY', default="unsafe-secret")
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1'])
-
 
 # Application definition
 
