@@ -95,9 +95,8 @@ Docker
    # Lancer le conteneur
    docker run -p 8000:8000 oc-lettings:local
 
-   # Récupérer depuis Docker Hub
-   docker pull ceorl/oc_lettings:latest
-      docker run -p 8000:8000 ceorl/oc_lettings:latest
+   # Récupérer depuis Docker Hub et execute l'image
+    docker run -p 8000:8000 ceorl/oc_lettings:latest
 
 
 Structure du projet
@@ -140,7 +139,7 @@ Structure du projet
    ├── .github/workflows/        # CI/CD GitHub Actions
    ├── docker/                   # Fichier docker
    ├── requirements.txt
-   ├── setup.cfg                 # Configuration flake8
+   ├── setup.cfg                 # Configuration flake8, etc
    └── manage.py
 
 Applications Django

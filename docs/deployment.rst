@@ -257,24 +257,7 @@ Aller sur https://sentry.io/signup/
 
 - Platform : Django
 - Nom : OC Lettings
-- Copier le DSN fourni
-
-**3. Configuration Django**
-
-.. code-block:: python
-
-   # settings.py
-   import sentry_sdk
-   from sentry_sdk.integrations.django import DjangoIntegration
-
-   if not DEBUG:
-       sentry_sdk.init(
-           dsn=os.environ.get('SENTRY_DSN'),
-           integrations=[DjangoIntegration()],
-           traces_sample_rate=1.0,
-           send_default_pii=True
-       )
-
+- Copier le DSN fourni dans le fichier .env
 
 
 Flux de déploiement complet
@@ -293,20 +276,14 @@ Workflow de développement à production
       │  └─ flake8
       └─ Commit et push
 
-   2. Pull Request
-      ├─ Ouvrir une PR sur GitHub
-      ├─ Pipeline CI/CD exécute Job 1 (tests)
-      ├─ Revue de code par l'équipe
-      └─ Merge dans main si approuvé
-
-   3. Déploiement automatique
+   2. Déploiement automatique
       ├─ Push sur main détecté
       ├─ Job 1 : Tests et linting ✓
       ├─ Job 2 : Build Docker et push ✓
       ├─ Job 3 : Déploiement sur Render ✓
       └─ Application en production
 
-   4. Surveillance
+   3. Surveillance
       ├─ Sentry monitore les erreurs
       ├─ Logs accessibles sur Render
       └─ Tests manuels de vérification

@@ -262,8 +262,6 @@ Application lettings
 ``0001_initial.py``
    Création des tables ``Address`` et ``Letting``.
 
-``0002_copy_data.py``
-   Migration des données depuis ``oc_lettings_site`` (refonte v2.0).
 
 Application profiles
 ~~~~~~~~~~~~~~~~~~~~
@@ -271,8 +269,6 @@ Application profiles
 ``0001_initial.py``
    Création de la table ``Profile``.
 
-``0002_copy_data.py``
-   Migration des données depuis ``oc_lettings_site`` (refonte v2.0).
 
 Application oc_lettings_site
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -281,5 +277,5 @@ Application oc_lettings_site
    Tables initiales (architecture monolithique v1.0).
 
 ``0002_delete_old_models.py``
-   Suppression des anciennes tables après migration vers architecture modulaire.
+   Suppression des anciens models et mise en relation des nouveaux modèles avec les anciennes tables après migration vers architecture modulaire.
 
