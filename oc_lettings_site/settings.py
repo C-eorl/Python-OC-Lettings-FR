@@ -8,9 +8,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(
-    DEBUG=(bool, False),
-)
+env = environ.Env()
 environ.Env.read_env(env_file=BASE_DIR / '.env')
 
 SENTRY_DSN = env('SENTRY_DSN', default=None)
