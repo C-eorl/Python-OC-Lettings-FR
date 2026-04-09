@@ -32,9 +32,7 @@ SECRET_KEY = env('SECRET_KEY', default="unsafe-secret")
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1'])
-INSTALLED_APPS = [
-    'django.contrib.admin',
-]
+
 
 # Application definition
 
