@@ -16,7 +16,7 @@ environ.Env.read_env(env_file=BASE_DIR / '.env')
 SENTRY_DSN = env('SENTRY_DSN', default=None)
 if SENTRY_DSN:
     sentry_sdk.init(
-        dsn=env('SENTRY_DSN'),
+        dsn=SENTRY_DSN,
         integrations=[
             DjangoIntegration(),
         ],

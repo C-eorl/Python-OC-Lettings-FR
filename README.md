@@ -114,7 +114,7 @@ Et enfin, déploiement de l'image docker sur Render grâce au hook.
 Instruction pour build l'image docker avec dépendance necessaire à son fonctionnement + celui de l'application django.
 
 ### c. Déploiement  
-Le déploiement s'effectue sur Render, qui va récupère image docker avec le tag :latest
+Le déploiement s'effectue sur Render, qui va récupère image docker avec le tag :latest via une clé Hook.
 
 ---
 _Projet réalisé dans le contexte de la formation Developpeur Python - OpenClassRoom_
